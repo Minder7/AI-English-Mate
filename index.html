@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI English Mate </title>
+    <title>AI English Mate</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ============================================
-           المتغيرات الأساسية (الذهبي الفاخر)
-           ============================================ */
         :root {
+            --bg-gradient: radial-gradient(circle at center, #0f5940 0%, #08261c 45%, #051410 100%);
+            --wave-color: #6ee7b7;
+            --status-text-color: rgba(110, 231, 183, 0.95);
+            --dock-bg: rgba(110, 231, 183, 0.05);
+            --dock-border: rgba(110, 231, 183, 0.1);
+            --dock-item-bg: rgba(110, 231, 183, 0.06);
+            --dock-item-color: #6ee7b7;
+            --mic-btn-bg: #6ee7b7;
+            --mic-btn-color: #051410;
+            --panel-bg: rgba(5, 20, 16, 0.88);
+            --panel-text: #a7f3d0;
+            --select-bg: rgba(110, 231, 183, 0.06);
+            --select-border: rgba(110, 231, 183, 0.15);
+            --select-option-bg: #051410;
+            --select-option-hover: rgba(110, 231, 183, 0.1);
+            --primary-accent: #6ee7b7;
+            --card-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+            --scrollbar-track: #051410;
+            --scrollbar-thumb: #0f5940;
+            --scrollbar-thumb-hover: #08261c;
+        }
+
+        body[data-theme="golden"] {
             --bg-gradient: linear-gradient(180deg, #92400e 0%, #b45309 30%, #d97706 70%, #f59e0b 100%);
             --wave-color: #fef3c7;
             --status-text-color: rgba(254, 243, 199, 0.95);
@@ -34,9 +54,6 @@
             --scrollbar-thumb-hover: #92400e;
         }
 
-        /* ============================================
-           ثيم البني الداكن الفاخر (Rich Brown)
-           ============================================ */
         body[data-theme="brown"] {
             --bg-gradient: radial-gradient(circle at 50% 40%, #2B1810 0%, #1A0E08 35%, #0F0805 70%, #0A0503 100%);
             --wave-color: #D4A574;
@@ -60,35 +77,6 @@
             --scrollbar-thumb-hover: #3D2418;
         }
 
-        /* ============================================
-           ثيم الزمردي المشع الفاخر (Emerald Glow)
-           ============================================ */
-        body[data-theme="emerald-glow"] {
-            --bg-gradient: radial-gradient(circle at center, #0f5940 0%, #08261c 45%, #051410 100%);
-            --wave-color: #6ee7b7;
-            --status-text-color: rgba(110, 231, 183, 0.95);
-            --dock-bg: rgba(110, 231, 183, 0.05);
-            --dock-border: rgba(110, 231, 183, 0.1);
-            --dock-item-bg: rgba(110, 231, 183, 0.06);
-            --dock-item-color: #6ee7b7;
-            --mic-btn-bg: #6ee7b7;
-            --mic-btn-color: #051410;
-            --panel-bg: rgba(5, 20, 16, 0.88);
-            --panel-text: #a7f3d0;
-            --select-bg: rgba(110, 231, 183, 0.06);
-            --select-border: rgba(110, 231, 183, 0.15);
-            --select-option-bg: #051410;
-            --select-option-hover: rgba(110, 231, 183, 0.1);
-            --primary-accent: #6ee7b7;
-            --card-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
-            --scrollbar-track: #051410;
-            --scrollbar-thumb: #0f5940;
-            --scrollbar-thumb-hover: #08261c;
-        }
-
-        /* ============================================
-           ثيم الكرومي المشع الفاخر (Crimson Glow)
-           ============================================ */
         body[data-theme="crimson-glow"] {
             --bg-gradient: radial-gradient(circle at center, #5a0a1a 0%, #3a0510 40%, #1a0208 100%);
             --wave-color: #ffb6c1;
@@ -112,68 +100,32 @@
             --scrollbar-thumb-hover: #5a0a1a;
         }
 
-        /* ============================================
-           ثيم الأزرق الليلي الفاخر (Midnight Blue)
-           ============================================ */
         body[data-theme="midnight-blue"] {
+            --bg-gradient:
+                radial-gradient(circle at left center, #2f7fff 0%, rgba(47,127,255,0.45) 18%, rgba(47,127,255,0.10) 38%, transparent 58%),
+                radial-gradient(circle at right center, #2f7fff 0%, rgba(47,127,255,0.45) 18%, rgba(47,127,255,0.10) 38%, transparent 58%),
+                linear-gradient(90deg, #0a2d7a 0%, #061a4d 12%, #030d25 30%, #010611 50%, #030d25 70%, #061a4d 88%, #0a2d7a 100%);
+            --wave-color: #66c8ff;
+            --status-text-color: rgba(225,240,255,.96);
+            --dock-bg: rgba(102,200,255,.06);
+            --dock-border: rgba(102,200,255,.16);
+            --dock-item-bg: rgba(102,200,255,.08);
+            --dock-item-color: #8edcff;
+            --mic-btn-bg: linear-gradient(135deg,#72d3ff,#2f7fff);
+            --mic-btn-color: #fff;
+            --panel-bg: rgba(3,8,24,.90);
+            --panel-text: #e5f4ff;
+            --select-bg: rgba(102,200,255,.07);
+            --select-border: rgba(102,200,255,.15);
+            --select-option-bg: #030d22;
+            --select-option-hover: rgba(102,200,255,.12);
+            --primary-accent: #58b9ff;
+            --card-shadow: 0 40px 90px rgba(0,0,0,.75), 0 0 120px rgba(47,127,255,.20);
+            --scrollbar-track: #020611;
+            --scrollbar-thumb: #175dff;
+            --scrollbar-thumb-hover: #53a8ff;
+        }
 
-    --bg-gradient:
-        radial-gradient(circle at left center,
-            #2f7fff 0%,
-            rgba(47,127,255,0.45) 18%,
-            rgba(47,127,255,0.10) 38%,
-            transparent 58%),
-
-        radial-gradient(circle at right center,
-            #2f7fff 0%,
-            rgba(47,127,255,0.45) 18%,
-            rgba(47,127,255,0.10) 38%,
-            transparent 58%),
-
-        linear-gradient(90deg,
-            #0a2d7a 0%,
-            #061a4d 12%,
-            #030d25 30%,
-            #010611 50%,
-            #030d25 70%,
-            #061a4d 88%,
-            #0a2d7a 100%);
-
-    --wave-color: #66c8ff;
-    --status-text-color: rgba(225,240,255,.96);
-
-    --dock-bg: rgba(102,200,255,.06);
-    --dock-border: rgba(102,200,255,.16);
-
-    --dock-item-bg: rgba(102,200,255,.08);
-    --dock-item-color: #8edcff;
-
-    --mic-btn-bg: linear-gradient(135deg,#72d3ff,#2f7fff);
-    --mic-btn-color: #fff;
-
-    --panel-bg: rgba(3,8,24,.90);
-    --panel-text: #e5f4ff;
-
-    --select-bg: rgba(102,200,255,.07);
-    --select-border: rgba(102,200,255,.15);
-
-    --select-option-bg: #030d22;
-    --select-option-hover: rgba(102,200,255,.12);
-
-    --primary-accent: #58b9ff;
-
-    --card-shadow:
-        0 40px 90px rgba(0,0,0,.75),
-        0 0 120px rgba(47,127,255,.20);
-
-    --scrollbar-track: #020611;
-    --scrollbar-thumb: #175dff;
-    --scrollbar-thumb-hover: #53a8ff;
-}
-
-        /* ============================================
-           أساسيات التصميم
-           ============================================ */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -205,6 +157,106 @@
         }
 
         /* ============================================
+           شاشة تسجيل الدخول بجوجل
+           ============================================ */
+        .login-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            background: var(--bg-gradient);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .login-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(1.02);
+        }
+
+        .login-card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(50px) saturate(150%);
+            -webkit-backdrop-filter: blur(50px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            padding: 48px 40px;
+            width: 420px;
+            max-width: 92%;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            animation: cardEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardEnter {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+.login-card h2 {
+            color: var(--wave-color);
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .login-card .subtitle {
+            color: var(--panel-text);
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: -16px;
+        }
+
+        .google-btn {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .google-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .google-btn:hover::before { left: 100%; }
+
+        .google-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .google-btn:active { transform: translateY(0); }
+
+        .google-btn i { font-size: 1.1rem; }
+
+/* ============================================
            الموجة الصوتية المتحركة
            ============================================ */
         .audio-wave-container {
@@ -317,9 +369,6 @@
             gap: 8px;
         }
 
-        /* ============================================
-           القوائم المنسدلة الفاخرة
-           ============================================ */
         .custom-select-container {
             position: relative;
             width: 100%;
@@ -407,23 +456,11 @@
             font-weight: 600;
         }
 
-        .custom-options-box::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-options-box::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-options-box::-webkit-scrollbar-thumb {
-            background: var(--scrollbar-thumb);
-            border-radius: 20px;
-        }
-        .custom-options-box::-webkit-scrollbar-thumb:hover {
-            background: var(--scrollbar-thumb-hover);
-        }
+        .custom-options-box::-webkit-scrollbar { width: 6px; }
+        .custom-options-box::-webkit-scrollbar-track { background: transparent; }
+        .custom-options-box::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 20px; }
+        .custom-options-box::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 
-        /* ============================================
-           أزرار تبديل الألوان (5 ألوان)
-           ============================================ */
         .theme-selector {
             display: flex;
             gap: 12px;
@@ -474,67 +511,91 @@
         .theme-midnight-blue { background: radial-gradient(circle at 40% 30%, #0c1e3d 0%, #071224 50%, #020617 100%); border: 1px solid rgba(147, 197, 253, 0.3); box-shadow: 0 0 10px rgba(96, 165, 250, 0.2); }
 
         /* ============================================
-           زر التطبيق الفاخر
+           زر تطبيق وتحديث الجلسة - شيك وجميل
            ============================================ */
         .save-btn {
-            padding: 14px 20px;
-            border-radius: 18px;
+            width: 100%;
+            padding: 20px 28px;
+            border-radius: 28px;
             border: none;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, rgba(255, 255, 255, 0.3) 100%);
-            color: white;
-            font-weight: 700;
-            font-size: 0.95rem;
+            background: linear-gradient(135deg, var(--primary-accent) 0%, rgba(255,255,255,0.12) 100%);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.05rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255,255,255,0.08) inset, 0 2px 4px rgba(255,255,255,0.05) inset;
             margin-top: 8px;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            letter-spacing: 0.6px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .save-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s ease;
         }
 
-        .save-btn:hover::before {
-            left: 100%;
-        }
+        .save-btn:hover::before { left: 100%; }
 
         .save-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.15) inset;
         }
 
         .save-btn:active {
-            transform: translateY(0);
+            transform: translateY(-1px) scale(0.98);
         }
 
-        body[data-theme="brown"] .save-btn {
-            background: linear-gradient(135deg, #D4A574 0%, #8B5E3C 100%);
-        }
+        .save-btn i { font-size: 0.9rem; }
 
-        body[data-theme="emerald-glow"] .save-btn {
-            background: linear-gradient(135deg, #6ee7b7 0%, #0f5940 100%);
-        }
-
-        body[data-theme="crimson-glow"] .save-btn {
-            background: linear-gradient(135deg, #ffb6c1 0%, #be185d 100%);
-        }
-
-        body[data-theme="midnight-blue"] .save-btn {
-            background: linear-gradient(135deg, #60a5fa 0%, #1e3a5f 100%);
-            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
-        }
+        body[data-theme="golden"] .save-btn { background: linear-gradient(135deg, #fcd34d 0%, #b45309 100%); }
+        body[data-theme="brown"] .save-btn { background: linear-gradient(135deg, #D4A574 0%, #8B5E3C 100%); }
+        body[data-theme="emerald-glow"] .save-btn { background: linear-gradient(135deg, #6ee7b7 0%, #0f5940 100%); }
+        body[data-theme="crimson-glow"] .save-btn { background: linear-gradient(135deg, #ffb6c1 0%, #be185d 100%); }
+        body[data-theme="midnight-blue"] .save-btn { background: linear-gradient(135deg, #60a5fa 0%, #1e3a5f 100%); box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3); }
 
         /* ============================================
-           الـ Dock السفلي - فاخر ورفيع وناعم
+           زر تسجيل الخروج
+           ============================================ */
+        .logout-btn {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            background: rgba(239, 68, 68, 0.06);
+            color: #ef4444;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.12);
+            border-color: rgba(239, 68, 68, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+        }
+
+        .logout-btn i { font-size: 0.85rem; }
+
+        /* ============================================
+           الـ Dock السفلي
            ============================================ */
         .bottom-dock {
             position: fixed;
@@ -551,8 +612,7 @@
             border: 0.5px solid var(--dock-border);
             border-radius: 48px;
             padding: 8px 36px;
-            box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.35), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
             z-index: 98;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             width: fit-content;
@@ -560,77 +620,25 @@
             max-width: 92%;
         }
 
-        /* --- موبايل صغير (أقل من 400px) --- */
         @media (max-width: 400px) {
-            .bottom-dock {
-                min-width: unset;
-                width: calc(100% - 20px);
-                padding: 7px 28px;
-                gap: 24px;
-                border-radius: 40px;
-                bottom: 14px;
-            }
+            .bottom-dock { min-width: unset; width: calc(100% - 20px); padding: 7px 28px; gap: 24px; border-radius: 40px; bottom: 14px; }
         }
-
-        /* --- موبايل متوسط (401px - 480px) --- */
         @media (min-width: 401px) and (max-width: 480px) {
-            .bottom-dock {
-                min-width: unset;
-                width: calc(100% - 24px);
-                max-width: 380px;
-                padding: 8px 32px;
-                gap: 26px;
-                border-radius: 44px;
-                bottom: 16px;
-            }
+            .bottom-dock { min-width: unset; width: calc(100% - 24px); max-width: 380px; padding: 8px 32px; gap: 26px; border-radius: 44px; bottom: 16px; }
         }
-
-        /* --- موبايل كبير / تابلت صغير (481px - 768px) --- */
         @media (min-width: 481px) and (max-width: 768px) {
-            .bottom-dock {
-                min-width: 320px;
-                width: fit-content;
-                padding: 8px 40px;
-                gap: 32px;
-                border-radius: 46px;
-                bottom: 18px;
-            }
+            .bottom-dock { min-width: 320px; width: fit-content; padding: 8px 40px; gap: 32px; border-radius: 46px; bottom: 18px; }
         }
-
-        /* --- تابلت / لاب صغير (769px - 1024px) --- */
         @media (min-width: 769px) and (max-width: 1024px) {
-            .bottom-dock {
-                min-width: 360px;
-                padding: 9px 48px;
-                gap: 40px;
-                border-radius: 48px;
-                bottom: 20px;
-            }
+            .bottom-dock { min-width: 360px; padding: 9px 48px; gap: 40px; border-radius: 48px; bottom: 20px; }
         }
-
-        /* --- ديسكتوب (1025px - 1440px) --- */
         @media (min-width: 1025px) and (max-width: 1440px) {
-            .bottom-dock {
-                min-width: 400px;
-                padding: 10px 56px;
-                gap: 48px;
-                border-radius: 50px;
-                bottom: 22px;
-            }
+            .bottom-dock { min-width: 400px; padding: 10px 56px; gap: 48px; border-radius: 50px; bottom: 22px; }
         }
-
-        /* --- شاشات كبيرة جداً (أكثر من 1440px) --- */
         @media (min-width: 1441px) {
-            .bottom-dock {
-                min-width: 440px;
-                padding: 10px 64px;
-                gap: 56px;
-                border-radius: 52px;
-                bottom: 24px;
-            }
+            .bottom-dock { min-width: 440px; padding: 10px 64px; gap: 56px; border-radius: 52px; bottom: 24px; }
         }
 
-        /* --- عناصر الدوك --- */
         .dock-item {
             width: 42px;
             height: 42px;
@@ -652,10 +660,7 @@
         .dock-item::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -668,20 +673,10 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .dock-item:hover::before {
-            opacity: 1;
-        }
+        .dock-item:hover::before { opacity: 1; }
+        .dock-item:active { transform: translateY(-1px) scale(1.02); }
+        .dock-item.muted { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
 
-        .dock-item:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        .dock-item.muted {
-            background: rgba(239, 68, 68, 0.12);
-            color: #ef4444;
-        }
-
-        /* الميكروفون في النص */
         .dock-item.toggle-mic {
             width: 50px;
             height: 50px;
@@ -709,118 +704,139 @@
             color: #ff6b6b;
         }
 
-        /* --- تجاوب الأزرار مع الشاشات --- */
         @media (max-width: 480px) {
-            .dock-item {
-                width: 38px;
-                height: 38px;
-                border-radius: 12px;
-                font-size: 0.85rem;
-            }
-            .dock-item.toggle-mic {
-                width: 44px;
-                height: 44px;
-                border-radius: 16px;
-                font-size: 1rem;
-            }
+            .dock-item { width: 38px; height: 38px; border-radius: 12px; font-size: 0.85rem; }
+            .dock-item.toggle-mic { width: 44px; height: 44px; border-radius: 16px; font-size: 1rem; }
         }
-
         @media (min-width: 1441px) {
-            .dock-item {
-                width: 46px;
-                height: 46px;
-                border-radius: 16px;
-                font-size: 1.05rem;
-            }
-            .dock-item.toggle-mic {
-                width: 54px;
-                height: 54px;
-                border-radius: 20px;
-                font-size: 1.25rem;
-            }
+            .dock-item { width: 46px; height: 46px; border-radius: 16px; font-size: 1.05rem; }
+            .dock-item.toggle-mic { width: 54px; height: 54px; border-radius: 20px; font-size: 1.25rem; }
         }
 
         @keyframes glow {
             0%, 100% { box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1); }
             50% { box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2); }
         }
-
-        .dock-item.toggle-mic {
-            animation: glow 3s ease-in-out infinite;
-        }
+        .dock-item.toggle-mic { animation: glow 3s ease-in-out infinite; }
 
         @supports (backdrop-filter: blur(1px)) {
-            .settings-panel,
-            .bottom-dock {
-                background: var(--panel-bg, var(--dock-bg));
-            }
+            .settings-panel, .bottom-dock, .login-card { background: var(--panel-bg, var(--dock-bg)); }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
 
         @media (max-width: 1024px) {
-            .settings-panel {
-                width: 90%;
-                max-width: 400px;
-            }
+            .settings-panel { width: 90%; max-width: 400px; }
         }
-
         @media (max-width: 640px) {
-            .settings-panel {
-                width: 85%;
-                max-width: 360px;
-                padding: 20px;
-                gap: 14px;
-                border-radius: 28px;
-                bottom: 100px;
-            }
-            .panel-title {
-                font-size: 1.05rem;
-            }
-            .status-text {
-                font-size: 1rem;
-                max-width: 90%;
-            }
+            .settings-panel { width: 85%; max-width: 360px; padding: 20px; gap: 14px; border-radius: 28px; bottom: 100px; }
+            .panel-title { font-size: 1.05rem; }
+            .status-text { font-size: 1rem; max-width: 90%; }
+            .login-card { padding: 36px 28px; }
+            .login-card h2 { font-size: 1.3rem; }
         }
-
         @media (max-width: 360px) {
-            .settings-panel {
-                width: 92%;
-                padding: 16px;
-                gap: 12px;
-                border-radius: 24px;
-                bottom: 90px;
-            }
-            .custom-option {
-                font-size: 0.8rem;
-                padding: 10px 12px;
-            }
+            .settings-panel { width: 92%; padding: 16px; gap: 12px; border-radius: 24px; bottom: 90px; }
+            .custom-option { font-size: 0.8rem; padding: 10px 12px; }
+            .login-card { padding: 28px 22px; }
         }
 
-        .settings-panel::-webkit-scrollbar {
-            width: 6px;
+        .settings-panel::-webkit-scrollbar { width: 6px; }
+        .settings-panel::-webkit-scrollbar-track { background: transparent; }
+        .settings-panel::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 20px; }
+        .settings-panel::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+
+        /* ============================================
+           شريط المستخدم العلوي
+           ============================================ */
+        .user-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            width: 100%;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 24px;
+            z-index: 100;
+            pointer-events: none;
         }
-        .settings-panel::-webkit-scrollbar-track {
-            background: transparent;
+
+        .user-bar.visible { display: flex; }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 14px 6px 6px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            border: 0.5px solid rgba(255,255,255,0.08);
+            pointer-events: auto;
+            transition: all 0.3s ease;
         }
-        .settings-panel::-webkit-scrollbar-thumb {
-            background: var(--scrollbar-thumb);
-            border-radius: 20px;
+
+        .user-profile:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
         }
-        .settings-panel::-webkit-scrollbar-thumb:hover {
-            background: var(--scrollbar-thumb-hover);
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid rgba(255,255,255,0.2);
+        }
+
+        .user-name {
+            color: var(--wave-color);
+            font-size: 0.82rem;
+            font-weight: 600;
+            max-width: 140px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .user-bar { padding: 12px 16px; }
+            .user-name { max-width: 100px; font-size: 0.75rem; }
+            .user-avatar { width: 28px; height: 28px; }
         }
     </style>
 <base target="_blank">
 </head>
-<body>
-    <div class="main-container">
+<body data-theme="emerald-glow">
+    <!-- ============================================
+         شاشة تسجيل الدخول بجوجل
+         ============================================ -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <h2>AI English Mate</h2>
+            <p class="subtitle">سجل دخولك بجوجل وابدأ رحلة تعلم الإنجليزي</p>
+            <button class="google-btn" id="googleLoginBtn">
+                <i class="fa-brands fa-google"></i>
+                تسجيل الدخول بـ Google
+            </button>
+            <p style="color: var(--panel-text); font-size: 0.8rem; opacity: 0.6; text-align: center; margin-top: 8px;">
+                بالدخول أنت توافق على شروط الاستخدام
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         المحتوى الرئيسي (يظهر بعد تسجيل الدخول)
+         ============================================ -->
+    <div class="main-container" id="mainApp" style="display:none;">
+        <div class="user-bar" id="userBar">
+            <div class="user-profile" id="userProfile">
+                <img src="" alt="avatar" class="user-avatar" id="userAvatar" onerror="this.style.display='none'">
+                <span class="user-name" id="userName">User</span>
+            </div>
+        </div>
+
         <div class="audio-wave-container speaking" id="audioWave">
             <span class="stroke"></span>
             <span class="stroke"></span>
@@ -879,15 +895,20 @@
             <div class="setting-group">
                 <label><i class="fa-solid fa-palette"></i> اختر لون الخلفية والواجهة</label>
                 <div class="theme-selector">
-                    <div class="theme-option theme-golden active" data-theme="golden" data-tooltip="ذهبي فاخر"></div>
+                    <div class="theme-option theme-golden" data-theme="golden" data-tooltip="ذهبي فاخر"></div>
                     <div class="theme-option theme-brown" data-theme="brown" data-tooltip="بني فاخر"></div>
-                    <div class="theme-option theme-emerald-glow" data-theme="emerald-glow" data-tooltip="زمردي مشع"></div>
+                    <div class="theme-option theme-emerald-glow active" data-theme="emerald-glow" data-tooltip="زمردي مشع"></div>
                     <div class="theme-option theme-crimson-glow" data-theme="crimson-glow" data-tooltip="كرومي مشع"></div>
                     <div class="theme-option theme-midnight-blue" data-theme="midnight-blue" data-tooltip="أزرق ليلي فاخر"></div>
                 </div>
             </div>
 
-            <button class="save-btn" id="saveSettingsBtn">تطبيق وتحديث الجلسة</button>
+            <button class="save-btn" id="saveSettingsBtn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> تطبيق وتحديث الجلسة
+            </button>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+            </button>
         </div>
 
         <div class="bottom-dock">
@@ -906,7 +927,11 @@
     </div>
 
     <script>
+        const API_BASE = "http://localhost:8000";
+
         const body = document.body;
+        const loginScreen = document.getElementById('loginScreen');
+        const mainApp = document.getElementById('mainApp');
         const audioWave = document.getElementById('audioWave');
         const statusText = document.getElementById('statusText');
         const micBtn = document.getElementById('micBtn');
@@ -916,14 +941,83 @@
         const saveSettingsBtn = document.getElementById('saveSettingsBtn');
         const endBtn = document.getElementById('endBtn');
         const themeOptions = document.querySelectorAll('.theme-option');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const googleLoginBtn = document.getElementById('googleLoginBtn');
+        const userBar = document.getElementById('userBar');
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
 
         let isMuted = false;
         let aiSessionState = 'speaking';
-        let selectedTheme = 'golden'; 
-
+        let selectedTheme = 'emerald-glow';
         let selectedLevelValue = "Intermediate";
         let selectedTopicValue = "السفر وإجراءات المطار";
 
+        // ============================================
+        // دوال المصادقة بجوجل
+        // ============================================
+        function showLogin() {
+            loginScreen.classList.remove('hidden');
+            mainApp.style.display = 'none';
+            userBar.classList.remove('visible');
+        }
+
+        function showMainApp(username, picture) {
+            loginScreen.classList.add('hidden');
+            mainApp.style.display = 'flex';
+            userBar.classList.add('visible');
+            userName.innerText = username;
+            if (picture) {
+                userAvatar.src = picture;
+                userAvatar.style.display = 'block';
+            } else {
+                userAvatar.style.display = 'none';
+            }
+            statusText.innerText = 'مرحباً ' + username + '! صديقك الإنجليزي يتحدث الآن...';
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            localStorage.removeItem('email');
+            localStorage.removeItem('picture');
+            window.location.href = API_BASE + '/auth/logout';
+        }
+
+        // التحقق من تسجيل الدخول عند فتح الصفحة
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('login') === 'true') {
+            const username = decodeURIComponent(urlParams.get('username') || '');
+            const email = decodeURIComponent(urlParams.get('email') || '');
+            const picture = decodeURIComponent(urlParams.get('picture') || '');
+            if (username) {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
+                localStorage.setItem('email', email);
+                localStorage.setItem('picture', picture);
+            }
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const savedUsername = localStorage.getItem('username');
+        const savedPicture = localStorage.getItem('picture');
+
+        if (isLoggedIn === 'true' && savedUsername) {
+            showMainApp(savedUsername, savedPicture);
+        } else {
+            showLogin();
+        }
+
+        googleLoginBtn.addEventListener('click', () => {
+            window.location.href = API_BASE + '/auth/login';
+        });
+
+        logoutBtn.addEventListener('click', logout);
+
+        // ============================================
+        // الإعدادات والواجهة
+        // ============================================
         function setupCustomDropdown(dropdownId, onChangeCallback) {
             const dropdown = document.getElementById(dropdownId);
             const trigger = dropdown.querySelector('.custom-select-trigger');
@@ -945,7 +1039,6 @@
                     option.classList.add('selected');
                     triggerText.innerText = option.innerText;
                     dropdown.classList.remove('open');
-
                     if(onChangeCallback) {
                         onChangeCallback(option.getAttribute('data-value'));
                     }
@@ -979,7 +1072,6 @@
             body.setAttribute('data-theme', selectedTheme);
             settingsPanel.classList.remove('active');
             statusText.innerText = `تم تحديث الجلسة. الجاري التدريب على موقف: [${selectedTopicValue}]`;
-
             setTimeout(() => {
                 setSessionState('speaking');
             }, 2500);
@@ -1012,7 +1104,7 @@
         }
 
         setInterval(() => {
-            if (!isMuted && !settingsPanel.classList.contains('active')) {
+            if (!isMuted && !settingsPanel.classList.contains('active') && mainApp.style.display !== 'none') {
                 setSessionState(aiSessionState === 'speaking' ? 'listening' : 'speaking');
             }
         }, 7000);
