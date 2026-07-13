@@ -7,9 +7,8 @@ import os
 
 app = FastAPI()
 
-# ── الـ Domain بتاع Railway ──
-DOMAIN = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "localhost:8000")
-BASE_URL = f"https://{DOMAIN}"
+# ── الـ Domain بتاع Railway (ثابت) ──
+BASE_URL = "https://ai-english-mate-production.up.railway.app"
 
 # CORS عشان المتصفح مايحظرش الطلبات
 app.add_middleware(
