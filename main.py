@@ -1,11 +1,15 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 import urllib.parse
 import os
 
 app = FastAPI()
+
+# ── الـ Domain بتاع Railway ──
+DOMAIN = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "localhost:8000")
+BASE_URL = f"https://{DOMAIN}"
 
 # CORS عشان المتصفح مايحظرش الطلبات
 app.add_middleware(
@@ -19,7 +23,7 @@ app.add_middleware(
 # ── بيانات Google OAuth ──
 CLIENT_ID = "241164673641-mo4maeohonm88gimi77obvjqoa01m98p.apps.googleusercontent.com"
 CLIENT_SECRET = "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"
-REDIRECT_URI = "https://ai-english-mate-production.up.railway.app/auth/callback"
+REDIRECT_URI = f"{BASE_URL}/auth/callback"
 
 # ── مسار الصفحة الرئيسية ──
 @app.get("/", response_class=HTMLResponse)
@@ -63,13 +67,14 @@ def callback(code: str):
     name = urllib.parse.quote(user_info.get("name", ""))
     email = urllib.parse.quote(user_info.get("email", ""))
     picture = urllib.parse.quote(user_info.get("picture", ""))
-    return RedirectResponse(url=f"http://localhost:8000/game?login=true&username={name}&email={email}&picture={picture}")
+    return RedirectResponse(url=f"{BASE_URL}/game?login=true&username={name}&email={email}&picture={picture}")
 
 # ── تسجيل خروج ──
 @app.get("/auth/logout")
 def logout():
-    return RedirectResponse(url="http://localhost:8000/game")
+    return RedirectResponse(url=f"{BASE_URL}/game")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
