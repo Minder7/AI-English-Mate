@@ -19,7 +19,7 @@ app.add_middleware(
 # ── بيانات Google OAuth ──
 CLIENT_ID = "241164673641-mo4maeohonm88gimi77obvjqoa01m98p.apps.googleusercontent.com"
 CLIENT_SECRET = "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"
-REDIRECT_URI = "http://localhost:8000/auth/callback"
+REDIRECT_URI = "https://ai-english-mate-production.up.railway.app/auth/callback"
 
 # ── مسار الصفحة الرئيسية ──
 @app.get("/", response_class=HTMLResponse)
@@ -72,4 +72,4 @@ def logout():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000) 
